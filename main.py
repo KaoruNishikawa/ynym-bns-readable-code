@@ -43,6 +43,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser() # descriptionは必要に応じて書くこと
 
     parser.add_argument("id", help="表示する単語IDの指定", nargs="?")
+    # default=[], action="append"
+    # → この引数が複数回指定された場合、リストに追加していく
     parser.add_argument(
         "--file",
         "-f",
