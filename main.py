@@ -1,6 +1,7 @@
-# 実行方法: $python print_better.py
+# 実行方法: $python print_better.py -f dictionary-data1.txt -u user1
 """
 出力例:
+ユーザー名: 1: user1
 1: 上手 じょうず
 2: 一時 いちじ
 3: 市場 しじょう
@@ -10,9 +11,8 @@
 import argparse
 
 
-def print_dict(file, user, idx, start_idx=0):
+def print_dict(file, idx, start_idx=0):
     with open(file, "r", encoding="utf-8") as f:
-        print(f"ユーザー名: {user}")
         print_all = idx is None
         for i, row in enumerate(f): # 行ごとにファイルを読み込む
             row_num = start_idx + i + 1 # i = 0, 1, 2 ...より現在の行には i + 1 が必要
@@ -25,8 +25,9 @@ def print_dict(file, user, idx, start_idx=0):
 def main(args):
     if len(args.file) == len(args.user):
         next_idx = 0
-        for file, user in zip(args.file, args.user):
-            last_idx = print_dict(file, user, args.id, next_idx)
+        for i, (file, user) in enumerate(zip(args.file, args.user)):
+            print(f"ユーザー名: {i + 1}: {user}")
+            last_idx = print_dict(file, args.id, next_idx)
             next_idx += last_idx + 1  # インデックスが重複しないように次の開始行を更新
             print("")  # 空行を出力
     else:
