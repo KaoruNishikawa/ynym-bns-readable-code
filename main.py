@@ -24,6 +24,7 @@ def print_dict(file, idx, start_idx=0, print_off=False):
 
 
 def main(args):
+    """ファイル名とユーザー名を、引数として与えられた順に読み出し、適切な辞書を出力する。"""
     if len(args.file) == len(args.user):
         next_idx = 0
         for i, (file, user) in enumerate(zip(args.file, args.user)):
