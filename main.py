@@ -12,6 +12,7 @@ import argparse
 
 def main(args):
     with open(args.file, "r", encoding="utf-8") as f:
+        print(f"ユーザー名: {args.user}")
         print_all = args.id is None
         for i, row in enumerate(f): # 行ごとにファイルを読み込む
             row_num = i + 1 # i = 0, 1, 2 ...より現在の行には i + 1 が必要
@@ -26,6 +27,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--file", "-f", help="ファイル名の指定", default="dictionary-data.txt"
     )
+    parser.add_argument("--user", "-u", help="ユーザー名の指定", default="")
 
     args = parser.parse_args()
     main(args)
