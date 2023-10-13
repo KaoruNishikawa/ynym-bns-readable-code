@@ -5,7 +5,7 @@ $ git clone https://github.com/ynym-bns/ynym-bns-readable-code
 2. プログラムを実行する
 python main.py
 
-2.1 一部の単語のみ出力する
+2.1 1単語のみ出力する
 # 単語ID=1の単語のみ出力
 python main.py 1
 ※ 存在しない単語IDを指定した場合は、何も出力されない
@@ -24,7 +24,12 @@ python main.py -f dictionary-data.txt -u 太郎
 python main.py -f taro.txt -u 太郎 -f jiro.txt -u 次郎
 ※ -f taro.txt -u 太郎 -u 次郎 -f jiro.txt のような順番でも読み込める。
 　ただし -f taro.txt -u 次郎 -u 太郎 -f jiro.txt のように、ファイルとユーザーの順番を入れ替えて指定
-　すると、辞書とユーザー名の紐づけが不正確になる。
+　すると、辞書とユーザー名が正確に紐づかない。
+
+2.5 1ユーザーの辞書のみ出力する (--uid オプション)
+# ユーザーID=2の単語のみ出力
+python main.py -f taro.txt -u 太郎 -f jiro.txt -u 次郎 --uid 2
+※ ユーザーIDは -u オプションの指定された順番で決まり、上記の例では次郎さんの辞書が出力される。
 
 ---データファイル(dictionary-data.txt)について---
 ・保存されている単語は 上手、一時、市場
