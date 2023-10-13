@@ -6,4 +6,6 @@ $ git clone https://github.com/ynym-bns/ynym-bns-readable-code
 python main.py
 
 ---データファイル(dictionary-data.txt)について---
-・上手、一時、市場 をテキストとして保存
+・保存されている単語は 上手、一時、市場
+・それぞれの単語について、単語そのものと読み仮名が保存されている。
+　これらの情報は半角スペースで区切られている。
